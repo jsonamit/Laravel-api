@@ -24,6 +24,15 @@ class Controller extends BaseController
         ];
         //return $response()->json($response, 200);
     }
+    public function getUsesbyid(Request $request)
+    {
+        $user = User::where('id',$request->id)->first();
+        echo $user;
+        $response = [
+            'user' => $user
+        ];
+        //return $response()->json($response, 200);
+    }
 
     public function deleteUser(Request $request)
     {
@@ -37,7 +46,7 @@ class Controller extends BaseController
 
     public function updateUser(Request $request)
     {
-        $user = User::where('id', 49)->update(
+        $user = User::where('id', $request>id)->update(
             [
                 "name" => $request->name,
                 "email" => $request->email,
