@@ -46,7 +46,7 @@ class Controller extends BaseController
 
     public function updateUser(Request $request)
     {
-        $user = User::where('id', $request>id)->update(
+        $user = User::where('id', $request->id)->update(
             [
                 "name" => $request->name,
                 "email" => $request->email,
@@ -65,5 +65,14 @@ class Controller extends BaseController
         unset($body['_token']);
         $user = new User($body);
         $user->save();
+    }
+    public function loginUser(Request $request)
+    {
+        $login= User::where('password',$request->password)->where('name',$request->username)->first();
+        $response = [
+            'login' => $login
+        ];
+        //return $response()->json($response, 200);
+        echo $login;
     }
 }

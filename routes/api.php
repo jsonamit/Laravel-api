@@ -18,6 +18,7 @@ use Illuminate\Http\Request;
 //});
 Route::get('/user',['uses'=>'Controller@getUser']);
 Route::get('/user/{id}',['uses'=>'Controller@getUsesbyid']);
+Route::post('/loginuser',['uses'=>'Controller@loginUser']);
 Route::post('/updateuser',['uses'=>'Controller@updateUser']);
 Route::post('/adduser',['uses'=>'Controller@addUser']);
 Route::get('/deleteuser/{id}',['uses'=>'Controller@deleteUser']);
